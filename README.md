@@ -2,6 +2,10 @@
 
 Marshal/unmarshal Kubernetes `ObjectMeta` properties into/from a custom `struct`.
 
+```shell
+go get -u github.com/iskorotkov/metadata
+```
+
 ## Features
 
 Supported `ObjectMeta` properties:
