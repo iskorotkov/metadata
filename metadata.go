@@ -27,6 +27,17 @@ var (
 	sliceOfDurations = reflect.TypeOf([]time.Duration(nil))
 )
 
+// TODO: Add Marshal/Unmarshal with interfaces support
+type Readable interface {
+	Labels() map[string]string
+	Annotations() map[string]string
+}
+
+type Writeable interface {
+	SetLabels(m map[string]string)
+	SetAnnotations(m map[string]string)
+}
+
 func Unmarshal(metadata v1.ObjectMeta, data interface{}, prefix string) error {
 	refPtr := reflect.ValueOf(data)
 	if refPtr.Kind() != reflect.Ptr {
